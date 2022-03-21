@@ -65,6 +65,12 @@
                                 This page is not a professional tool; it was 
                                 built to test a Machine Learning model based on data about Water Potability.
                             </p>
+                            Notes:
+                            <ul>
+                                <li>If you fill all the fields with zero, you won't see any result.</li>
+                                <li>The form only accepts positive values.</li>
+                                <li>If you let a blank field, the API will take it as zero.</li>
+                            </ul>
                         </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-success w-25" data-dismiss="modal">OK!</button>
@@ -87,7 +93,7 @@
                             <sup>(?) </sup><strong>pH</strong>: <small><small><small>Eg. 7.345</small></small></small>
                         </label>
                         <input id="ph-range" class="form-range col-4" type="number"
-                            name="ph" min="0" max="14" step="0.001" value="0">
+                            name="ph" min="0" max="14" step="0.001" value="8.31">
                     </div>
 
                     <div class="form-group w-100 row justify-content-around parm-desc"
@@ -96,7 +102,7 @@
                             <sup>(?) </sup><strong>Hardness</strong>: <small><small><small>Eg. 55.302</small></small></small>
                         </label>
                         <input id="hardness" class="form-range col-4" type="number"
-                            name="hardness" min="0" step="0.001" value="0">
+                            name="hardness" min="0" step="0.001" value="214.37">
                     </div>
 
                     <div class="form-group w-100 row justify-content-around parm-desc"
@@ -105,7 +111,7 @@
                             <sup>(?) </sup><strong>Solids</strong>: <small><small><small>Eg. 61227.196</small></small></small>
                         </label>
                         <input id="hardness" class="form-range col-4" type="number"
-                            name="solids" min="0" step="0.001" value="0">
+                            name="solids" min="0" step="0.001" value="22018.41">
                     </div>
 
                     <div class="form-group w-100 row justify-content-around parm-desc"
@@ -114,7 +120,7 @@
                             <sup>(?) </sup><strong>Chloramines</strong>: <small><small><small>Eg. 13.127</small></small></small>
                         </label>
                         <input id="chloramines" class="form-range col-4" type="number"
-                            name="chloramines" min="0" step="0.001" value="0">
+                            name="chloramines" min="0" step="0.001" value="8.059">
                     </div>
 
                     <div class="form-group w-100 row justify-content-around parm-desc"
@@ -123,7 +129,7 @@
                             <sup>(?) </sup><strong>Sulfate</strong>: <small><small><small>Eg. 481.030</small></small></small>
                         </label>
                         <input id="sulfate" class="form-range col-4" type="number"
-                            name="sulfate" min="0" step="0.001" value="0">
+                            name="sulfate" min="0" step="0.001" value="356.88">
                     </div>
 
                     <div class="form-group w-100 row justify-content-around parm-desc"
@@ -132,7 +138,7 @@
                             <sup>(?) </sup><strong>Conductivity</strong>: <small><small><small>Eg. 3.342</small></small></small>
                         </label>
                         <input id="conductivity" class="form-range col-4" type="number"
-                            name="conductivity" min="0" step="0.001" value="0">
+                            name="conductivity" min="0" step="0.001" value="363.26">
                     </div>
 
                     <div class="form-group w-100 row justify-content-around parm-desc"
@@ -141,7 +147,7 @@
                             <sup>(?) </sup><strong>Org. Carbon</strong>: <small><small><small>Eg. 28.300</small></small></small>
                         </label>
                         <input id="organic-carbon" class="form-range col-4" type="number"
-                            name="organic_carbon" min="0" step="0.001" value="0">
+                            name="organic_carbon" min="0" step="0.001" value="18.43">
                     </div>
 
                     <div class="form-group w-100 row justify-content-around parm-desc"
@@ -150,7 +156,7 @@
                             <sup>(?) </sup><strong>Trihalomethanes</strong>: <small><small><small>Eg. 124.000</small></small></small>
                         </label>
                         <input id="trihalomethanes" class="form-range col-4" type="number"
-                            name="trihalomethanes" min="0" step="0.001" value="0">
+                            name="trihalomethanes" min="0" step="0.001" value="100.34">
                     </div>
 
                     <div class="form-group w-100 row justify-content-around parm-desc"
@@ -159,7 +165,7 @@
                             <sup>(?) </sup><strong>Turbidity</strong>: <small><small><small>Eg. 6.739</small></small></small>
                         </label>
                         <input id="turbidity" class="form-range col-4" type="number"
-                            name="turbidity" min="0" step="0.001" value="0">
+                            name="turbidity" min="0" step="0.001" value="4.628">
                     </div>
 
                     <div class="form-group w-100 row justify-content-around">
