@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Potability Prediction</title>
+
+    <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" 
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+    crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            OpenBootstrapPopup();
+        };
+        function OpenBootstrapPopup() {
+            $("#disclaimerModal").modal('show');
+        }
+    </script>
+
+    <style>
+        .parm-desc:before {
+            content: attr(data-hover);
+            visibility: hidden;
+            opacity: 0;
+            width: 100%;
+            background-color: rgba(19, 169, 238, 0.658);
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            padding: 5px 0;
+            transition: opacity 1s ease-in-out;
+
+            position: absolute;
+            z-index: 5;
+            left: 0;
+            right: 100%;
+            top: -50px;
+        }
+
+        .parm-desc:hover:before {
+            opacity: 1;
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+    <!-- Modal -->
+    <div class="modal fade" id="disclaimerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header alert alert-warning">
+                    <h5 class="modal-title" id="exampleModalLabel">Before using...</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                        <div class="modal-body bg-alert">
+                            <p>
+                                This page is not a professional tool; it was 
+                                built to test a Machine Learning model based on data about Water Potability.
+                            </p>
+                        </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-success w-25" data-dismiss="modal">OK!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-5">
+        <h1 class="display-4 text-center"><a href="/" class="h1">🤖 Water Potability Prediction 🚰</a></h1>
+        <p class="lead text-center">Welcome! Type your values to simulate recollected data and 
+            send them to the API to get your predictions.
+        </p>
+        <hr class="my-4">
+        <div class="sectionflex">
+            <form class="col-lg-6 offset-lg-3" method="POST" action="/predict">
+                <div class="row justify-content-center">
+                    <div class="form-group w-100 row justify-content-around parm-desc"
+                        data-hover="Value to evaluate the acid–base balance of water. Normal range: [0 - 14]">
+                        <label for="ph-range" class="form-label col-4">
+                            <sup>(?) </sup><strong>pH</strong>: <small><small><small>Eg. 7.345</small></small></small>
+                        </label>
+                        <input id="ph-range" class="form-range col-4" type="number"
+                            name="ph" min="0" max="14" step="0.001" value="0">
+                    </div>
+
+                    <div class="form-group w-100 row justify-content-around parm-desc"
+                        data-hover="Capacity of water to precipitate soap caused by Calcium and Magnesium. Normal range: [0 - 60]">
+                        <label for="hardness" class="form-label col-4">
+                            <sup>(?) </sup><strong>Hardness</strong>: <small><small><small>Eg. 55.302</small></small></small>
+                        </label>
+                        <input id="hardness" class="form-range col-4" type="number"
+                            name="hardness" min="0" step="0.001" value="0">
+                    </div>
+
+                    <div class="form-group w-100 row justify-content-around parm-desc"
+                        data-hover="Total dissolved solids (TDS). Desirable range: [500 - 1000] mg/l">
+                        <label for="" class="form-label col-4">
+                            <sup>(?) </sup><strong>Solids</strong>: <small><small><small>Eg. 61227.196</small></small></small>
+                        </label>
+                        <input id="hardness" class="form-range col-4" type="number"
+                            name="solids" min="0" step="0.001" value="0">
+                    </div>
+
+                    <div class="form-group w-100 row justify-content-around parm-desc"
+                        data-hover="Chloramines are most commonly formed when ammonia is added to chlorine to treat drinking water. Up to 4 mg/L">
+                        <label for="chloramines" class="form-label col-4">
+                            <sup>(?) </sup><strong>Chloramines</strong>: <small><small><small>Eg. 13.127</small></small></small>
+                        </label>
+                        <input id="chloramines" class="form-range col-4" type="number"
+                            name="chloramines" min="0" step="0.001" value="0">
+                    </div>
+
+                    <div class="form-group w-100 row justify-content-around parm-desc"
+                        data-hover="Sulfates are naturally occurring substances that are found in minerals, soil, and rocks. Desirable range [3 - 30] mg/L">
+                        <label for="sulfate" class="form-label col-4">
+                            <sup>(?) </sup><strong>Sulfate</strong>: <small><small><small>Eg. 481.030</small></small></small>
+                        </label>
+                        <input id="sulfate" class="form-range col-4" type="number"
+                            name="sulfate" min="0" step="0.001" value="0">
+                    </div>
+
+                    <div class="form-group w-100 row justify-content-around parm-desc"
+                        data-hover="Pure water is not a good conductor of electric current rather’s a good insulator. EC value should not exceeded 400 μS/cm">
+                        <label for="conductivity" class="form-label col-4">
+                            <sup>(?) </sup><strong>Conductivity</strong>: <small><small><small>Eg. 3.342</small></small></small>
+                        </label>
+                        <input id="conductivity" class="form-range col-4" type="number"
+                            name="conductivity" min="0" step="0.001" value="0">
+                    </div>
+
+                    <div class="form-group w-100 row justify-content-around parm-desc"
+                        data-hover="Total Organic Carbon (TOC). For drinking water < 2 mg/L.">
+                        <label for="organic-carbon" class="form-label col-4">
+                            <sup>(?) </sup><strong>Org. Carbon</strong>: <small><small><small>Eg. 28.300</small></small></small>
+                        </label>
+                        <input id="organic-carbon" class="form-range col-4" type="number"
+                            name="organic_carbon" min="0" step="0.001" value="0">
+                    </div>
+
+                    <div class="form-group w-100 row justify-content-around parm-desc"
+                        data-hover="THMs are chemicals which may be found in water treated with chlorine. Up to 80 ppm for drinking water.">
+                        <label for="trihalomethanes" class="form-label col-4">
+                            <sup>(?) </sup><strong>Trihalomethanes</strong>: <small><small><small>Eg. 124.000</small></small></small>
+                        </label>
+                        <input id="trihalomethanes" class="form-range col-4" type="number"
+                            name="trihalomethanes" min="0" step="0.001" value="0">
+                    </div>
+
+                    <div class="form-group w-100 row justify-content-around parm-desc"
+                        data-hover="Turbidity of water depends on the quantity of solid matter present in the suspended state. WHO recommended 5.00 NTU for drinking water.">
+                        <label for="turbidity" class="form-label col-4">
+                            <sup>(?) </sup><strong>Turbidity</strong>: <small><small><small>Eg. 6.739</small></small></small>
+                        </label>
+                        <input id="turbidity" class="form-range col-4" type="number"
+                            name="turbidity" min="0" step="0.001" value="0">
+                    </div>
+
+                    <div class="form-group w-100 row justify-content-around">
+                        <button type="submit" class="btn btn-primary">
+                            Get Predictions
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+      </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
+</html>
