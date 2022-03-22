@@ -35,6 +35,17 @@ If you want to try the model without any download, click on this [URL](https://g
 
 On this repository, you can find all the files used to develop this project, from Jupyter Notebooks for Data Analysis to the FastAPI code used on deployment.
 
+### Data folder
+
+The original dataset from [Kaggle](https://www.kaggle.com/adityakadiwal/water-potability) and the cleaned data, both as .csv files.
+
+### Models 
+
+After training the machine learning model and deploying it, the model must be saved into files that will be loaded using the python _joblib_ package
+
+### FastAPI code
+In the "webapp" folder, you can find all the code used to deploy the model with FastAPI at the backend and the HTML files used in the frontend.
+
 ### Jupyter notebooks
 The project was divided into three jupyter notebooks to get the steps to build the model more organized.
 - **1. Data Cleaning.ipynb** is where missing values were treated.
