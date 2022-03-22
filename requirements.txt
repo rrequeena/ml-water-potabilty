@@ -105,7 +105,6 @@ pyserial==3.5
 python-dateutil==2.8.1
 pytweening==1.0.4
 pytz==2021.1
-pywin32==303
 pywinpty==1.1.6
 pyzmq==22.3.0
 reedsolo==1.5.4
