@@ -5,7 +5,7 @@ Water is our best resource on this planet, nature in general. Doing projects bas
 Nowadays, we can create devices that support machine learning models; the primary goal of this project is to train a model which, based on some values, can tell us if the water is potable or not.
 
 ## Try the model
-If you want to try the model without any download, click on this [URL](https://google.com) or scan the QR, and you will get to a webpage where you can write your data and get the prediction result.
+If you want to try the model without any download, click on this [URL](https://water-potability-model.herokuapp.com) or scan the QR, and you will get to a webpage where you can write your data and get the prediction result.
 
 <p align="center">
   <img width="200" height="200" src="https://user-images.githubusercontent.com/64110737/159400129-8c7094b7-19cc-4139-8679-ac7633243481.png">
